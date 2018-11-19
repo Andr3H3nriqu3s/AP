@@ -46,6 +46,7 @@ function draw() {
   else if (slide == 13) {RamdomDrawingslide();}
   else if (slide == 14) {slidePurpleRain();}
   else if (slide == 15) {slide11();}
+  else if (slide == 16) {slide12();}
   else {slideRandomMover();}
 
 }
@@ -292,6 +293,15 @@ function slide11() {
   text(t, width/2 - textWidth(t)/2,height/3 - 16);
   t = "https://github.com/Andr3H3nriqu3s/AP";
   text(t, width/2 - textWidth(t)/2,height/3 * 2 - 16);
+}
+
+function slide12() {
+  if (ftime) ftime = false;
+  t = 'This is an Open Source Project!';
+  background(0);
+  fill(255);
+  textSize(42);
+  text(t, width/2 - textWidth(t)/2, height/2 - 21);
 }
 
 function slideRandomMover() {
