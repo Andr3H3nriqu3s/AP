@@ -34,25 +34,24 @@ function show() {
     ftime = true;
   }
   socket.emit('slide', '');
-  if (slide == 0) {
-    slide0();
-  } else if (slide == 1) {
-    slide0();
-  } else if (slide == 2) {
-    slide0();
-  } else if (slide == 3) {
-    slide1();
-  } else if (slide == 4) {
-    slide2();
-  } else if (slide == 5 || slide == 6) {
-    slide3();
-  } else if (slide == 7) {slide4();} 
+  if (slide == 0) {slide0();} 
+  else if (slide == 1) {slide0();} 
+  else if (slide == 2) {slide0();} 
+  else if (slide == 3) {slide1();} 
+  else if (slide == 4) {slide2();} 
+  else if (slide == 5 || slide == 6) {slide3();} 
+  else if (slide == 7) {slide4();} 
   else if (slide == 8) {slide5();}
   else if (slide == 9) {slide6();}
   else if (slide == 10) {slide7();}
   else if (slide == 11) {slide8();}
-  else { slideNone();
-  }
+  else if (slide == 12) {slide9();}
+  else if (slide == 13) {slide9();}
+  else if (slide == 14) {slide9();}
+  else if (slide == 15) {slide10();}
+  else if (slide == 16) {slide11();}
+  else if (slide == 17) {slide12();}
+  else { slideNone();}
 }
 
 function slide0() {
@@ -141,6 +140,34 @@ function slide8() {
   fill(255);
   defFont();
   text('Just Like Magic', width/2 - getTextWidth('Just Like Magic')/2, height/2);
+}
+
+function slide9() {
+  background(0,0,0);
+  fill(255);
+  defFont();
+  text('Look Up!', width/2 - getTextWidth('Look up!')/2, height/2);
+}
+
+function slide10() {
+  background(0,0,0);
+  fill(255);
+  defFont();
+  text('Go get it', width/2 - getTextWidth('Look up!')/2, height/2);
+}
+
+function slide11() {
+  background(0,0,0);
+  fill(255);
+  defFont();
+  text('Free and you can change it!', width/2 - getTextWidth('Free and you can change it!')/2, height/2);
+}
+
+function slide12() {
+  background(0,0,0);
+  fill(255);
+  defFont();
+  text('Thank you!', width/2 - getTextWidth('Thank you!')/2, height/2);
 }
 
 function slideNone() {
