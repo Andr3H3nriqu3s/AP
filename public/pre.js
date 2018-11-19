@@ -49,6 +49,7 @@ function draw() {
   else if (slide == 15) {slide11();}
   else if (slide == 16) {slide12();}
   else if (slide == 17) {slide13();}
+  else if (slide == 18) {slide13();}
   else {slideRandomMover();}
 
 }
