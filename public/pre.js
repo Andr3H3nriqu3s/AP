@@ -31,34 +31,22 @@ function draw() {
     frameRate(60);
     count = 0;
   }
-  //background(0);
-  if (slide == 0) {
-    slide0();
-  } else if (slide == 1) {
-    slide1();
-  } else if (slide == 2) {
-    slide2();
-  } else if (slide == 3) {
-    slide3();
-  } else if (slide == 4) {
-    slide4();
-  } else if (slide == 5 || slide == 6) {
-    slide5();
-  }else if (slide == 7) {
-    slide6();
-  }else if (slide == 8) {
-    slide7();
-  } else if (slide == 9) {
-    slide8();
-  } 
+  if (slide == 0) {slide0();} 
+  else if (slide == 1) {slide1();} 
+  else if (slide == 2) {slide2();} 
+  else if (slide == 3) {slide3();} 
+  else if (slide == 4) {slide4();} 
+  else if (slide == 5 || slide == 6) {slide5();}
+  else if (slide == 7) {slide6();}
+  else if (slide == 8) {slide7();} 
+  else if (slide == 9) {slide8();} 
   else if (slide == 10) {slide9();}
   else if (slide == 11) {slide10();}
   else if (slide == 12) {slideSwitchColors();}
   else if (slide == 13) {RamdomDrawingslide();}
   else if (slide == 14) {slidePurpleRain();}
-  else {
-    slideRandomMover();
-  }
+  else if (slide == 15) {slide11();}
+  else {slideRandomMover();}
 
 }
 
@@ -296,9 +284,14 @@ function slidePurpleRain() {
 }
 
 function slide11() {
-  if (ftime) {
-    ftime = false;
-  }
+  if (ftime) {ftime = false;}
+  background(0);
+  fill(255);
+  textSize(32);
+  t = "Where to get?";
+  text(t, width/2 - textWidth(t)/2,height/3 - 16);
+  t = "https://github.com/Andr3H3nriqu3s/AP";
+  text(t, width/2 - textWidth(t)/2,height/3 * 2 - 16);
 }
 
 function slideRandomMover() {
@@ -346,21 +339,6 @@ function slideRandomMover() {
   }
   t[0] += -5;
   stroke(1); 
-  /*if (x > width || x < 0) {
-    x -= vx * 8;
-    y -= vy * 8;
-    y -= 8;
-  }
-  if (y > height) {
-    x -= vx * 8;
-    y -= vy * 8;
-    x -= 16;
-  }
-  if (y < 0) {
-    x -= vx * 8;
-    y -= vy * 8;
-    x += 16;
-  }*/
 }
 
 function drawConnectionInfo() {
