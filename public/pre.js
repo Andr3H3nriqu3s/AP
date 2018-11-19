@@ -18,6 +18,7 @@ var y = 0;
 var vx = 0;
 var vy = 0;
 var t = [];
+var t1 = [];
 
 socket.on('aslide', (msg) => {if (pMode) slide = msg});
 
@@ -313,6 +314,7 @@ function slide13() {
 
 function slideRandomMover() {
   if (ftime) {
+    background(255);
     ftime = false;
     x = width/2;
     y = height/2;
@@ -321,8 +323,11 @@ function slideRandomMover() {
     t = [255,255,255];
     fill(t[0],t[1],t[2]);
     rect(x,y,8,8);
-    background(0);
   }
+  fill(0);
+  image(logo, width/2 - logo.width/2, height/2 - logo.height/2);
+  textSize(64);
+  text('aP', width/2 - textWidth('ap') + width/100 * 3, height/2 - 32 - height/100 * 3);
   noStroke();
   count = Math.floor(Math.random() * 100);
   if (count <= 25) {
