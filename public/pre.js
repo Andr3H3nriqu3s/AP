@@ -47,6 +47,7 @@ function draw() {
   else if (slide == 14) {slidePurpleRain();}
   else if (slide == 15) {slide11();}
   else if (slide == 16) {slide12();}
+  else if (slide == 17) {slide13();}
   else {slideRandomMover();}
 
 }
@@ -285,7 +286,6 @@ function slidePurpleRain() {
 }
 
 function slide11() {
-  if (ftime) {ftime = false;}
   background(0);
   fill(255);
   textSize(32);
@@ -296,11 +296,18 @@ function slide11() {
 }
 
 function slide12() {
-  if (ftime) ftime = false;
   t = 'This is an Open Source Project!';
   background(0);
   fill(255);
   textSize(42);
+  text(t, width/2 - textWidth(t)/2, height/2 - 21);
+}
+
+function slide13() {
+  background(0);
+  fill(255);
+  textSize(42);
+  t = 'Make a simple thing such as presentation magical!';
   text(t, width/2 - textWidth(t)/2, height/2 - 21);
 }
 
