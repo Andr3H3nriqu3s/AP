@@ -81,7 +81,7 @@ function slide2() {
   ctx.font = "64px Verdana";
   background(0,0,0);
   fill(255,255,255);
-  text('number Lines', width/2 - getTextWidth('number Lines')/2, height/2 - 32);
+  text('640 Lines', width/2 - getTextWidth('640 Lines')/2, height/2 - 32);
 }
 
 function slide3() {

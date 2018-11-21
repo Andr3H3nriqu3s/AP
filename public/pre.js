@@ -117,7 +117,6 @@ function slide3() {
   text('Screens', width/4 * 3 - textWidth('Screens')/2, height/2 - 32);
 }
 
-//TODO: Add final number of lines
 function slide4() {
   if (ftime) {
     ftime = false;
@@ -126,7 +125,7 @@ function slide4() {
   textSize(64);
   fill(255);
   text('Text Based Presentation Software', width/2 - textWidth('Text Based Presentation Software')/2, height/3 - 32);
-  text('Number Lines', width/2 - textWidth('Number Lines')/2, height/3 * 2 - 32);
+  text('640', width/2 - textWidth('640')/2, height/3 * 2 - 32);
 }
 
 function slide5() {
