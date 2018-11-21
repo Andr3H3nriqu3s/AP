@@ -86,11 +86,24 @@ function slide2() {
     vx = 5;
     y = 0;
     vy = 5;
+    count = height;
+    t = false;
   }
   background(255);
-  fill(0);
+  if (t) {
+    fill(0);  
+    rect(0,count,width,height);
+    count -= 5;
+    if (count < 0) {
+      count = 0;
+    }
+  }
+  stroke(0);
+  strokeWeight(4);
+  fill(255);
   textSize(32);
   text('Basic Functionality', width/4 - textWidth('Basic Functionality') + x, height/2 - 16);
+  strokeWeight(1);
   push();
   translate(0,-y);
   drawConnectionInfo();
@@ -99,10 +112,12 @@ function slide2() {
     y += vy;
     return;
   }
+  t = true;
   x += vx;
   y += vy;
   if (x > width/3) x = width/3;
   if (y > height) y = height;
+
 }
 
 function slide3() {
