@@ -60,8 +60,6 @@ function slide0() {
   fill(0);
   rect(width/2 - 5, 0, 10, height);
   image(logo, width/4 - logo.width/2, height/2 - logo.height/2);
-  textSize(64);
-  text('aP', width/4 - textWidth('ap') + width/100 * 3, height/2 - 32 - height/100 * 3);
   drawConnectionInfo();
 }
 

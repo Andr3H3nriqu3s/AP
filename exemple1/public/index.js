@@ -1,10 +1,15 @@
 var socket = io();
 var cc;
 var ctx;
-const width = screen.width;
-const height = screen.height;
+var width = screen.width;
+var height = screen.height;
+const isSafari = navigator.userAgent.indexOf("iPhone") != -1;
 
 window.onload = () => {
+  if (isSafari) {
+    width = window.innerWidth;
+    height = window.innerHeight;
+  }
   cc = document.getElementById('cc');
   cc.width = width;
   cc.height = height;
@@ -55,13 +60,25 @@ function show() {
 }
 
 function slide0() {
-  if (ftime) {
+  if (ftime)  {
     ftime = false;
+    defFont();
+    background(255);
+    fill(0);
+    text('Thanks You For Connecting', width/2 - getTextWidth('Thanks You For Wating')/2 , height/2 - 16);
+
+    let img = new Image();
+    img.onload = () => {
+      ctx.scale(0.5,0.5);
+      ctx.drawImage(img, width - img.width/2, height/2 - img.height/2);
+      ctx.scale(2,2);
+    };
+    img.src = "logo.png";
+    fill(0);
+    defFont();
+    t = 'Make a simple thing such as presentation magical!';
+    text(t, width/2 - getTextWidth(t)/2, height/3 * 2 - 21);
   }
-  defFont();
-  background(0,0,0);
-  fill(255,255,255);
-  text('Thank You For Connecting', width/2 - getTextWidth('Thank You For Wating')/2, height/2 - 16);
 }
 
 function slide1() {
@@ -99,7 +116,7 @@ function slide4() {
     ftime = false;
   }
   background(0,0,0);
-  ctx.font = "64px Verdana"
+  defFont();
   fill(255,255,255);
   text('Advanced Functionality', width/2 - getTextWidth('Advanced Functionality')/2, height/2 - 32);
 }
@@ -199,13 +216,11 @@ function fill(r,g,b) {
   }
   lastFill = ctx.fillStyle;
   ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-  //ctx.fillStyle = 'red';
 }
 
 function sfill(s) {
   lastFill = ctx.fillStyle;
   ctx.fillStyle = s;
-  //ctx.fillStyle = 'red';
 }
 
 function background(r,g,b) {
@@ -239,6 +254,7 @@ function text(t,x,y) {
 
 function defFont() {
   ctx.font = height/15 + 'px Verdana'
+  if (isSafari) ctx.font = 12 + 'px Verdana'
 }
 
 function getTextWidth(t) {
