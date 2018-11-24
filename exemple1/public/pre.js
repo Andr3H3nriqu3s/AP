@@ -49,7 +49,6 @@ function draw() {
   else if (slide == 15) {slide11();}
   else if (slide == 16) {slide12();}
   else if (slide == 17) {slide13();}
-  else if (slide == 18) {slide13();}
   else {slideRandomMover();}
 
 }
@@ -339,8 +338,6 @@ function slideRandomMover() {
   }
   fill(0);
   image(logo, width/2 - logo.width/2, height/2 - logo.height/2);
-  textSize(64);
-  text('aP', width/2 - textWidth('ap') + width/100 * 3, height/2 - 32 - height/100 * 3);
   noStroke();
   count = Math.floor(Math.random() * 100);
   if (count <= 25) {
