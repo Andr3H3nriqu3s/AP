@@ -23,7 +23,7 @@ var t1 = [];
 socket.on('aslide', (msg) => {if (pMode) slide = msg});
 
 function draw() {
-  if (pMode) {
+  if (pMode && socket != null) {
     socket.emit('slide','');
   }
   if (slide != lslide) {
