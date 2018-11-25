@@ -137,7 +137,7 @@ function slide4() {
   textSize(64);
   fill(255);
   text('Text Based Presentation Software', width/2 - textWidth('Text Based Presentation Software')/2, height/3 - 32);
-  text('640', width/2 - textWidth('640')/2, height/3 * 2 - 32);
+  text('665', width/2 - textWidth('665')/2, height/3 * 2 - 32);
 }
 
 function slide5() {
