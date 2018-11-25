@@ -382,8 +382,8 @@ function drawConnectionInfo() {
     stroke(1);
     fill(0);
     textSize(32);
-    text('Connect to Aa Wi-fi Network', width/4 - textWidth('Connect to Aa Wi-fi Network') / 2, height/6 * 2 + 16);
-    text('Go to your Browser and go to google.com', width/4 - textWidth('Go to your Browser and go to google.com')/2, height/7 * 4 + 16);
+    text('Connect to AP Wi-fi Network', width/4 - textWidth('Connect to AP Wi-fi Network') / 2, height/6 * 2 + 16);
+    text('Go to your Browser and go to http://atena:3000', width/4 - textWidth('Go to your Browser and go to http://atena:3000')/2, height/7 * 4 + 16);
     pop();
 }
 
