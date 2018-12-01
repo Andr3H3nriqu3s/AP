@@ -1,0 +1,17 @@
+{
+  "name": "pcreate",
+  "version": "1.0.0",
+  "description": "AP creation software",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "keywords": [
+    "AP"
+  ],
+  "author": "Andre Henriques",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^3.0.10"
+  }
+}
