@@ -3,8 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" type="css/text" href="startwin.css">
   </head>
+  <script src="startwin.js"></script>
   <body>
-    <h1>Hello World!</h1>
+    <script>
+        var link = document.createElement('link')
+        link.setAttribute('rel', 'stylesheet')
+        link.setAttribute('href', require('path').join(__dirname, 'startwin.css'))
+        document.head.appendChild(link)
+    </script>
+    <img src="logo.png">
+    <input type="text" class="name" id="newName" placeholder="Project-Name"/><br>
+    <button class="create" onclick="newP()">Create new project</button>
+    <button class="create last" onclick="last()">Last Project</button>
+    <button class="create open" onclick="open()">Open Project</button>
+    <div class="errorDiv disabled" id = "errordiv">
+      <div id="divmessage" class="messageDiv disabled">
+        <p class="error" id="perror"></p>
+        <button class="error" onclick="closeerror()"> Close</button>
+      </div>
+    </div>
   </body>
 </html>
