@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            var link = document.createElement('link')
+            link.setAttribute('rel', 'stylesheet')
+            link.setAttribute('href', require('path').join(__dirname, 'mainwin.css'))
+            document.head.appendChild(link)
+        </script>
+        <div class="list" id="preList">
+            
+        </div>
+        <div class="screen" id="preScreen">
+
+        </div>
+
+        <div class="picker" id="prePicker">
+
+        </div>
+        <div class="settings" id="preSettings">
+
+        </div>
+
+        <!-- Screens -->
+
+        <div class="list disable" id="preList">
+
+        </div>
+        <div class="screen disable" id="preScreen">
+    
+        </div>
+    
+        <div class="picker disable" id="prePicker">
+    
+        </div>
+        <div class="settings disable" id="preSettings">
+    
+        </div>
+
+    </body>
+</html>

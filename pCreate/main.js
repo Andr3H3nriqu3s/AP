@@ -1,10 +1,12 @@
 const electron = require('electron');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
+const dialog = electron.dialog;
 const fs = require('fs');
 const path = require('path');
 
 /***@type BrowserWindow*/
 var startedWin;
+/***@type BrowserWindow*/
 var mainWindow;
 var last;
 var workingDir;
@@ -43,7 +45,7 @@ function createStartWindow() {
     });
 }
 
-function createMainWindow() {
+function createMainWindow(name) {
     let template = [];
     if (process.platform == 'darwin') {
         template.unshift({
@@ -61,12 +63,24 @@ function createMainWindow() {
                     click() {
                         app.quit();
                     }
+                },
+                {
+                    label: 'Presentaion',
+                    click() {
+
+                    }
+                },
+                {
+                    label: 'Screens',
+                    click() {
+
+                    }
                 }
             ]
         });
     }
     Menu.setApplicationMenu(Menu.buildFromTemplate(template));
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 800, height: 600, title: name});
 
     mainWindow.webContents.openDevTools();
 
@@ -78,6 +92,7 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
+    getLastProject();
     createStartWindow();
 });
 
@@ -88,8 +103,6 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
     if (win === null) {
       createStartWindow()
     }
@@ -102,9 +115,34 @@ ipcMain.on('load', (event, msg) => {
             startedWin.webContents.send('errorM', 'No last project opened!');
             return;
         }
+        if (!fs.existsSync(workingDir)) {
+            startedWin.webContents.send('errorM', 'No last project opened!');
+            last = null;
+            return;
+        }
         workingDir = last;
     } else if (msg == '||:open') {
-
+        let dir = dialog.showOpenDialog({properties: ['openFile']});
+        console.log(dir);
+        if (!dir) {
+            startedWin.webContents.send('errorM', 'No invalid project file selected!');
+            return;
+        }
+        dir = dir[0];
+        let data = fs.readFileSync(dir);
+        let json;   
+        try {
+            json = JSON.parse(data)
+        }
+        catch(err) {
+            startedWin.webContents.send('errorM', 'No invalid project file selected!');
+            return;
+        }
+        if (!json.name) {
+            startedWin.webContents.send('errorM', 'No invalid project file selected!');
+            return;
+        }
+        workingDir = dir;
     } else {
         let dir = require('os').homedir();
         dir = path.join(dir, 'Documents');
@@ -131,8 +169,21 @@ ipcMain.on('load', (event, msg) => {
         let data = fs.readFileSync(dir);
         json = JSON.parse(data);
         workingDir = dir;
-
     }
+    let configDir = require('os').homedir();
+    configDir = path.join(configDir, 'Documents');
+    configDir = path.join(configDir, 'AP');
+    configDir = path.join(configDir, 'config');
+    configDir = path.join(configDir, 'config.txt');
+    let toJSON = {
+        "last": workingDir
+    };
+    fs.writeFileSync(configDir, JSON.stringify(toJSON));
+    last = workingDir;
+    let data = fs.readFileSync(workingDir);
+    data = JSON.parse(data);
+    createMainWindow(data.name);
+    startedWin.close();
 });
 
 function getLastProject() {

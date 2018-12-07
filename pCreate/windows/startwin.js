@@ -15,10 +15,10 @@ function newP() {
         document.getElementById('perror').innerHTML = 'Invalid character in the name!';
         return;
     }
-    ipcRenderer('load', text);
+    ipcRenderer.send('load', text);
 }   
 
-function open() {
+function openP() {
     ipcRenderer.send('load', "||:open");
 }
 

@@ -1,0 +1,57 @@
+div.list {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 25%;
+    height: 100%;
+    background: rgb(255, 0, 0);
+}
+div.screen {
+    position: fixed;
+    top: 0px;
+    left: 25%;
+    width: 75%;
+    height: 70%;
+    background: rgb(0, 255, 0);
+}
+div.picker {
+    position: fixed;
+    top: 70%;
+    left: 25%;
+    width: 37.5%;
+    height: 30%;
+    background: rgb(0, 0, 255);
+}
+div.settings {
+    position: fixed;
+    top: 70%;
+    left: 62.5%;
+    width: 37.5%;
+    height: 30%;
+    background: rgb(0, 0, 0);
+}
+
+@media(min-width: 1366px) {
+    div.list {
+        width: 12.5%;
+    }
+    div.screen {
+        width: 87.5%;
+        left: 12.5%;
+    }
+    div.picker {
+        left: 12.5%;
+        width: 43.75%;
+    }
+    div.settings {
+        left: 56.25%;
+        width: 43.75%;
+    }
+}
+@media(min-height: 768px) {
+
+}
+
+div.disable {
+    top: 100%;
+}
