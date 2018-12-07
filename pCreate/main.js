@@ -186,6 +186,8 @@ ipcMain.on('load', (event, msg) => {
     startedWin.close();
 });
 
+ipcMain.on('getJSON', mainWindow.webContents.send('ajson', JSON.parse(fs.readFileSync(workingDir))));
+
 function getLastProject() {
     let dir = require('os').homedir();
     dir = path.join(dir, 'Documents');

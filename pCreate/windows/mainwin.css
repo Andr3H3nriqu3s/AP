@@ -4,7 +4,6 @@ div.list {
     left: 0px;
     width: 25%;
     height: 100%;
-    background: rgb(255, 0, 0);
 }
 div.screen {
     position: fixed;
@@ -31,6 +30,62 @@ div.settings {
     background: rgb(0, 0, 0);
 }
 
+button {
+    border:0px;
+    color: #ddd;
+    background: #eee;
+    color: #000;
+    transition: color .4s, background .4s;
+}
+button:hover {
+    border:0px;
+    color: white;
+    background: #555;
+    color: #fff;
+}
+
+button.add {
+    position: absolute;
+    top: 90%;
+    width: 50%;
+    height: 10%;
+    padding: 0px;
+    border-right:  2px solid #555;
+}
+button.remove {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 50%;
+    height: 10%;
+    padding: 0px;
+    border-right:  2px solid #555;
+}
+
+table {
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+    background: #fff;
+    border-bottom: 2px solid #555;
+    border-right: 2px solid #555;
+}
+
+tr {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    background: rgb(125, 255, 0);
+}
+
+td {
+    height: 15%;
+    width: 100%;
+}
+
 @media(min-width: 1366px) {
     div.list {
         width: 12.5%;
@@ -49,7 +104,17 @@ div.settings {
     }
 }
 @media(min-height: 768px) {
-
+    button.add {
+        top: 95%;
+        height: 5%;
+    }
+    button.remove {
+        top: 95%;
+        height: 5%;
+    }
+    table {
+        height: 95%;
+    }
 }
 
 div.disable {
