@@ -11,7 +11,7 @@ div.screen {
     left: 25%;
     width: 75%;
     height: 70%;
-    background: rgb(0, 255, 0);
+    background: #555;
 }
 div.picker {
     position: fixed;
@@ -19,7 +19,6 @@ div.picker {
     left: 25%;
     width: 37.5%;
     height: 30%;
-    background: rgb(0, 0, 255);
 }
 div.settings {
     position: fixed;
@@ -27,9 +26,8 @@ div.settings {
     left: 62.5%;
     width: 37.5%;
     height: 30%;
-    background: rgb(0, 0, 0);
+    background: rgb(0, 255, 0);
 }
-
 button {
     border:0px;
     color: #ddd;
@@ -43,7 +41,6 @@ button:hover {
     background: #555;
     color: #fff;
 }
-
 button.add {
     position: absolute;
     top: 90%;
@@ -61,8 +58,8 @@ button.remove {
     padding: 0px;
     border-right:  2px solid #555;
 }
-
 table {
+    position: absolute;
     height: 90%;
     width: 100%;
     overflow-y: scroll;
@@ -70,22 +67,42 @@ table {
     border-bottom: 2px solid #555;
     border-right: 2px solid #555;
 }
-
+table.picker {
+    height: 100%;
+    overflow-y: none;
+    overflow-x: scroll;
+    background: #fff;
+    border-top: 2px solid #555;
+}
 tr {
-    position: relative;
+    position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
     width: 100%;
-    background: rgb(125, 255, 0);
 }
-
 td {
+    position: absolute;
     height: 15%;
     width: 100%;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
 }
-
+canvas {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+canvas.cscreen{
+    position: absolute;
+    height: 90%;
+    width: 95%;
+    padding-top: 2.5%;
+    padding-bottom: 5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
 @media(min-width: 1366px) {
     div.list {
         width: 12.5%;
@@ -116,7 +133,6 @@ td {
         height: 95%;
     }
 }
-
 div.disable {
     top: 100%;
 }

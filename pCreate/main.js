@@ -36,8 +36,6 @@ function createStartWindow() {
     Menu.setApplicationMenu(Menu.buildFromTemplate(template));
     startedWin = new BrowserWindow({width: 800, height: 600, resizable: false});
 
-    startedWin.webContents.openDevTools();
-
     startedWin.loadFile('windows/startwin.html');
 
     startedWin.on('closed', () => {
@@ -186,7 +184,7 @@ ipcMain.on('load', (event, msg) => {
     startedWin.close();
 });
 
-ipcMain.on('getJSON', mainWindow.webContents.send('ajson', JSON.parse(fs.readFileSync(workingDir))));
+ipcMain.on('getJSON', () => { if(mainWindow != null) mainWindow.webContents.send('ajson', JSON.parse(fs.readFileSync(workingDir)))});
 
 function getLastProject() {
     let dir = require('os').homedir();
