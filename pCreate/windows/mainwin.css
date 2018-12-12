@@ -19,6 +19,7 @@ div.picker {
     left: 25%;
     width: 37.5%;
     height: 30%;
+    background: #555;
 }
 div.settings {
     position: fixed;
@@ -71,8 +72,10 @@ table.picker {
     height: 100%;
     overflow-y: none;
     overflow-x: scroll;
-    background: #fff;
-    border-top: 2px solid #555;
+    border-bottom: 0px;
+    border-right: 0px;
+    background: #555;
+    border-top: 2px solid #333;
 }
 tr {
     position: absolute;
@@ -80,7 +83,11 @@ tr {
     left: 0px;
     width: 100%;
     height: 100%;
-    width: 100%;
+}
+tr.picker {
+    width: 50%;
+    height: 100%;
+    background: #fff;
 }
 td {
     position: absolute;
@@ -88,6 +95,13 @@ td {
     width: 100%;
     padding-top: 0.1%;
     padding-bottom: 0.1%;
+}
+td.picker {
+    width: 100%;
+    height: 100%;
+    padding-top: 45%;
+    padding-left: 25%;
+    font-size: 200%;
 }
 canvas {
     position: absolute;
@@ -118,6 +132,16 @@ canvas.cscreen{
     div.settings {
         left: 56.25%;
         width: 43.75%;
+    }
+    tr.picker {
+        width: 25%;
+        height: 100%;
+    }
+    td.picker {
+        padding-left: 35%;
+        padding-top: 55%;
+        font-size: 300%;
+        padding-top: 50%;
     }
 }
 @media(min-height: 768px) {

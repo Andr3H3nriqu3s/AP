@@ -33,7 +33,11 @@ function render() {
                 ctx.height = cc.height;
                 sbackground(ctx, element.backgroundc);
                 element.contents.forEach((element, index) => {
-
+                    if (element.type == 'text') {
+                        sfill(ctx, element.color);
+                        ctx.font = element.font;
+                        text(ctx, element.x * Math.round(ctx.width/100), element.y * Math.round(ctx.height/100), element.text);
+                    }
                 });
             });
         } else {
@@ -53,9 +57,26 @@ function render() {
         let element = json.slidePre[selectedSlide];
         sbackground(ctx, element.backgroundc);
         element.contents.forEach((element, index) => {
-            
+            if (element.type == 'text') {
+                sfill(ctx, element.color);
+                ctx.font = element.font;
+                text(ctx, element.x * Math.round(ctx.width/100), element.y * Math.round(ctx.height/100), element.text);
+            }
         });
     }
+}
+
+function addTextPre() {
+    if (selectedSlide == null) {return;}
+    let text = {
+        "type": 'text',
+        "x": 50,
+        "y": 50,
+        "color": "#ffffff",
+        "text": "Text",
+        "font": "12px Verdana"
+    };
+    json.slidePre[selectedSlide].contents.push(text);
 }
 
 function preAdd () {
@@ -63,6 +84,8 @@ function preAdd () {
     let indexToAdd = 0;
     if (selectedSlide == null) {
         indexToAdd = -1;
+    } else {
+        indexToAdd = selectedSlide + 1;
     }
     if (indexToAdd == -1) {
         json.slidePre.push({
@@ -71,7 +94,7 @@ function preAdd () {
         });
         addSlideToListPre(json.slidePre.length - 1);
     } else {
-        json.slidePre.add(indexToAdd, {
+        json.slidePre.push(indexToAdd, {
             "contents": [],
             "backgroundc": '#000000',
         });
